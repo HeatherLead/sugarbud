@@ -3,7 +3,6 @@ import pandas as pd
 file_path = "model/cbcInformation.xlsx"
 df = pd.read_excel(file_path)
 
-# Define column mappings
 WBC_col = "WBC"
 RBC_col = "RBC"
 Hemoglobin_col = "HGB"
@@ -43,7 +42,7 @@ def classify_disease(row):
 
 df["Possible Disease"] = df.apply(classify_disease, axis=1)
 
-output_file = "model/output.xlsx"
+output_file = "model/labelDataset.xlsx"
 df.to_excel(output_file, index=False)
 
 print(f"Processed data saved to {output_file}")
